@@ -1,0 +1,34 @@
+#### README #####
+
+
+This R script can be run in any linux machine with R installed with openxlsx and argparser packages.
+
+The software has been tested on a Ubuntu 20.04, R version 4.2.1, openxlsx R package version 4.2.5 and argparser R package version 0.7.1
+
+
+To run the script, type this in the linux terminal (it should take no more than a few seconds):
+
+Rscript Vigex_calculation.R --expression expression_input_vigex.xlsx
+
+
+Be aware of use log2 expression values. The script will take care of centering the expression values.
+Be also aware of the spelling (the software is case-sensitive) of the genes, the genes included in the VIGex Score calculation must be spelled exactly as follows: "CTLA4", "IL7R", "GZMA", "PRF1", "IFNg", "PDCD1", "FOXP3", "CXCL9", "CXCL10", "CXCL11", "GZMB", "CD274"
+
+
+The output file will be an excel file with 3 columns:
+- samples: name of the samples analysed
+- vigex_score: VIGex Score
+- vigex_cluster: VIGex Cluster
+
+
+######################################################################################################################
+### Caution: the used cutoffs have been validated in the training dataset presented in this paper.                ####
+### If you are using vigex in other samples/techniques, you'll probably have to correct for batch effects.        ####      
+### Moreover, this is a score/sample grouping developed in a pan-cancer cohort, if your cohort is tumor-specific, ####
+### you may have to apply further corrections or other techniques to obtain the Hot/iCold/Cold categories.        ####      
+######################################################################################################################
+
+
+
+If you need to normalize nanostring, you can take a look to nanostring_normalization.R R script.
+
